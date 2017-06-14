@@ -7,7 +7,7 @@ function secondLargest(array) {
       secondHighest = max;
       max = array[i];
     }
-    if (array[i] > second_highest && array[i] < max) {
+    if (array[i] > secondHighest && array[i] < max) {
       secondHighest = array[i];
     }
   }
