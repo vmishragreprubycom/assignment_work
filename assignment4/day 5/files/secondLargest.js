@@ -1,5 +1,4 @@
-// Problem 1: Complete the secondLargest function which takes in an array of numbers in input and return the second biggest number in the array. (without using sort)?
-function secondLargest(array) {
+module.exports.secondLargest = function(array) {
   var max = Number.MIN_VALUE;
   var secondHighest = max;
   for (i = 0; i < array.length; i++) {
@@ -13,5 +12,3 @@ function secondLargest(array) {
   }
   return secondHighest;
 }
-
-module.exports.secondLargest = secondLargest;

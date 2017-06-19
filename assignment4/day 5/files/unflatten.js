@@ -1,5 +1,4 @@
-// Problem 4: Complete the unflatten function that takes a JS Object, returns a JS Object in unflatten format
-function unflatten(flatObject) {
+module.exports.unflatten = function(flatObject) {
   var output = {};
   for (var key in flatObject) {
     makeUnflatten(output, key.split('.'), flatObject[key]);
@@ -18,5 +17,3 @@ function makeUnflatten(output, parts, value) {
   }
   output[parts[lastKeyIndex]] = value;
 }
-
-module.exports.unflatten = unflatten;
