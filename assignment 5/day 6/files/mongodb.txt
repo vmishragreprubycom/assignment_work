@@ -1,0 +1,217 @@
+----------------------------------------THIS IS FILE "1"---------------------------
+
+o   o  o-o  o   o  o-o   o-o  o-o   o--o  
+|\ /| o   o |\  | o     o   o |  \  |   | 
+| O | |   | | \ | |  -o |   | |   O O--o  
+|   | o   o |  \| o   | o   o |  /  |   | 
+o   o  o-o  o   o  o-o   o-o  o-o   o--o  
+                                          
+                                                                                       
+MongoDB (from humongous) is a free and open-source cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schemas. MongoDB is developed by MongoDB Inc. and is free and open-source, published under a combination of the GNU Affero General Public License and the Apache License.
+
+Contents  [hide] 
+1	History
+2	Main features
+3	Bug reports and criticisms
+4	Architecture
+4.1	Programming language accessibility
+4.2	Management and graphical front-ends
+4.3	Licensing
+5	MongoDB World
+6	See also
+7	References
+8	Bibliography
+9	External links
+History[edit]
+See also: MongoDB Inc. § History
+The software company 10gen began developing MongoDB in 2007 as a component of a planned platform as a service product. In 2009, the company shifted to an open source development model, with the company offering commercial support and other services. In 2013, 10gen changed its name to MongoDB Inc.[6]
+
+Main features[edit]
+Ad hoc queries
+MongoDB supports field, range queries, regular expression searches.[7] Queries can return specific fields of documents and also include user-defined JavaScript functions. Queries can also be configured to return a random sample of results of a given size.
+
+Indexing
+Fields in a MongoDB document can be indexed with primary and secondary indices.
+
+Replication
+MongoDB provides high availability with replica sets.[8] A replica set consists of two or more copies of the data. Each replica set member may act in the role of primary or secondary replica at any time. All writes and reads are done on the primary replica by default. Secondary replicas maintain a copy of the data of the primary using built-in replication. When a primary replica fails, the replica set automatically conducts an election process to determine which secondary should become the primary. Secondaries can optionally serve read operations, but that data is only eventually consistent by default.
+
+Load balancing[9]
+MongoDB scales horizontally using sharding. The user chooses a shard key, which determines how the data in a collection will be distributed. The data is split into ranges (based on the shard key) and distributed across multiple shards. (A shard is a master with one or more slaves.). Alternatively, the shard key can be hashed to map to a shard – enabling an even data distribution.
+
+MongoDB can run over multiple servers, balancing the load or duplicating data to keep the system up and running in case of hardware failure.
+
+File storage
+MongoDB can be used as a file system with load balancing and data replication features over multiple machines for storing files.
+
+This function, called Grid File System,[10] is included with MongoDB drivers. MongoDB exposes functions for file manipulation and content to developers. GridFS is used in plugins for NGINX[11] and lighttpd.[12] GridFS divides a file into parts, or chunks, and stores each of those chunks as a separate document.[13]
+
+Aggregation
+MapReduce can be used for batch processing of data and aggregation operations.
+
+The aggregation framework enables users to obtain the kind of results for which the SQL GROUP BY clause is used. Aggregation operators can be strung together to form a pipeline – analogous to Unix pipes. The aggregation framework includes the $lookup operator which can join documents from multiple documents, as well as statistical operators such as standard deviation.
+
+Server-side JavaScript execution
+JavaScript can be used in queries, aggregation functions (such as MapReduce), and sent directly to the database to be executed.
+
+Capped collections
+MongoDB supports fixed-size collections called capped collections. This type of collection maintains insertion order and, once the specified size has been reached, behaves like a circular queue.
+
+Bug reports and criticisms[edit]
+Due to the default security configuration of MongoDB, allowing anyone to have full access to the database, data from tens of thousands of MongoDB installations has been stolen. Many servers have been held for ransom as a result of this.[14][15]
+
+In some failure scenarios where an application can access two distinct MongoDB processes, but these processes cannot access each other, it is possible for MongoDB to return stale reads. In this scenario it is also possible for MongoDB to roll back writes that have been acknowledged.[16]
+
+Before version 2.2, concurrency control was implemented on a per-mongod basis. With version 2.2, concurrency control was implemented at the database level.[17] Since version 3.0,[18] pluggable storage engines were introduced, and each storage engine may implement concurrency control differently.[19] With MongoDB 3.0 concurrency control is implemented at the collection level for the MMAPv1 storage engine,[20] and at the document level with the WiredTiger storage engine.[21] With versions prior to 3.0, one approach to increase concurrency is to use sharding.[22] In some situations, reads and writes will yield their locks. If MongoDB predicts a page is unlikely to be in memory, operations will yield their lock while the pages load. The use of lock yielding expanded greatly in 2.2.[23]
+
+Another criticism, from 2009, is related to the limitations of MongoDB when used on 32-bit systems.[24] In some cases, this was due to inherent memory limitations.[25][self-published source] MongoDB recommends 64-bit systems and that users provide sufficient RAM for their working set.
+
+Up until version 3.3.11, MongoDB could not do collation-based sorting and was limited to byte-wise comparison via memcmp,[26] which would not provide correct ordering for many non-English languages[27] when used with a Unicode encoding. The issue was fixed on August 23, 2016.
+
+MongoDB queries against an index are not atomic and can miss documents which are being updated while the query is running and match the query both before and after an update.[28]
+
+Architecture[edit]
+Programming language accessibility[edit]
+MongoDB has official drivers for a variety of popular programming languages and development environments.[29] There are also a large number of unofficial or community-supported drivers for other programming languages and frameworks. [30]
+
+Management and graphical front-ends[edit]
+
+Record insertion in MongoDB with Robomongo 0.8.5.
+Most administration is done from command line tools such as the mongo shell because MongoDB does not include a GUI-style administrative interface. There are products and third-party projects that offer user interfaces for administration and data viewing.[31]
+
+Licensing[edit]
+MongoDB is available at no cost under the GNU Affero General Public License, version 3.[32] The language drivers are available under an Apache License. In addition, MongoDB Inc. offers proprietary licenses for MongoDB.
+
+MongoDB World[edit]
+MongoDB World[33] is an annual developer conference hosted by MongoDB, Inc.
+
+See also[edit]
+	Free software portal
+NoSQL
+Server-side scripting
+MEAN, a solutions stack using MongoDB as the database
+HyperDex, a NoSQL database providing the MongoDB API with stronger consistency guarantees
+TokuMX, a fork of MongoDB with stronger consistency and new index structures
+References[edit]
+Jump up ^ "State of MongoDB March, 2010". MongoDB.
+Jump up ^ "Release Notes for MongoDB 3.4". MongoDB.
+Jump up ^ "Core Server Versions". MongoDB.
+Jump up ^ "Install MongoDB". MongoDB Manual. Retrieved 2016-08-17.
+Jump up ^ "MongoDB Ports". FreeBSD Ports Search. Retrieved 2016-09-15.
+Jump up ^ "10gen embraces what it created, becomes MongoDB Inc.". Gigaom. Retrieved 29 January 2016.
+Jump up ^ "MongoDB Find Command".
+Jump up ^ "Ridiculously fast MongoDB replica recovery Part 1 of 2". ClusterHQ.
+Jump up ^ "Turning MongoDB Replica Set to a Sharded Cluster". Severalnines.
+Jump up ^ "GridFS & MongoDB: Pros & Cons". Compose.
+Jump up ^ "NGINX plugin for MongoDB source code". GitHub.
+Jump up ^ "lighttpd plugin for MongoDB source code". Bitbucket.
+Jump up ^ Malick Md. "MongoDB overview". Expertstown.
+Jump up ^ Krebs, Brian. "Extortionists Wipe Thousands of Databases, Victims Who Pay Up Get Stiffed". krebsonsecurity.com. Brian Krebs. Retrieved 11 January 2017.
+Jump up ^ Constantin, Lucian. "Ransomware groups have deleted over 10,000 MongoDB databases". Computer World. IDG. Retrieved 11 January 2017.
+Jump up ^ Kyle Kingsbury (2015-04-20). "Call me maybe: MongoDB stale reads". Retrieved 2015-07-04.
+Jump up ^ "MongoDB Jira Ticket 4328". jira.mongodb.org.
+Jump up ^ Eliot Horowitz (2015-01-22). "Renaming Our Upcoming Release to MongoDB 3.0". MongoDB. Retrieved 2015-02-23.
+Jump up ^ "MongoDB 2.8 release". MongoDB.
+Jump up ^ MongoDB. "MMAPv1 Concurrency Improvement". MongoDB.
+Jump up ^ MongoDB. "WiredTiger Concurrency and Compression". MongoDB.
+Jump up ^ MongoDB. "FAQ Concurrency - How Does Sharding Affect Concurrency". MongoDB.
+Jump up ^ MongoDB. "FAQ Concurrency - Do Operations Ever Yield the Lock". MongoDB.
+Jump up ^ MongoDB (8 July 2009). "32-bit Limitations". MongoDB.
+Jump up ^ David Mytton (25 September 2012). "Does Everybody Hate MongoDB". Server Density.
+Jump up ^ "memcmp". cppreference.com. 31 May 2013. Retrieved 26 April 2014.
+Jump up ^ "MongoDB Jira ticket 1920". jira.mongodb.org.
+Jump up ^ MongoDB queries don’t always return all matching documents!
+Jump up ^ MongoDB. "MongoDB Drivers and Client Libraries". MongoDB. Retrieved 2013-07-08.
+Jump up ^ MongoDB. "Community Supported Drivers". MongoDB. Retrieved 2014-07-09.
+Jump up ^ MongoDB. "Admin UIs". Retrieved 15 September 2015.
+Jump up ^ MongoDB. "The AGPL". The MongoDB NoSQL Database Blog. MongoDB.
+Jump up ^ MongoDB World
+Bibliography[edit]
+Banker, Kyle (March 28, 2011), MongoDB in Action (1st ed.), Manning, p. 375, ISBN 978-1-935182-87-0
+Chodorow, Kristina; Dirolf, Michael (September 23, 2010), MongoDB: The Definitive Guide (1st ed.), O'Reilly Media, p. 216, ISBN 978-1-4493-8156-1
+Pirtle, Mitch (March 3, 2011), MongoDB for Web Development (1st ed.), Addison-Wesley Professional, p. 360, ISBN 978-0-321-70533-4
+Hawkins, Tim; Plugge, Eelco; Membrey, Peter (September 26, 2010), The Definitive Guide to MongoDB: The NoSQL Database for Cloud and Desktop Computing (1st ed.), Apress, p. 350, ISBN 978-1-4302-3051-9
+External links[edit]
+Official website
+[hide] v t e
+Node.js
+Platform	
+Node.js NPM V8 CommonJS
+Node.js logo.svg
+Frameworks	
+MEAN MongoDB Express.js AngularJS/Angular MEEN (substituted with Ember.js) Backbone.js Meteor
+Libraries	
+Lodash Underscore.js React.js
+Languages	
+JavaScript CoffeeScript TypeScript
+Hosts	
+Joyent Nodejitsu OpenShift Linode DigitalOcean
+Authority control	
+WorldCat Identities VIAF: 174499323 LCCN: no2011130709
+Categories: 2009 softwareDatabase-related software for LinuxDistributed computing architectureDocument-oriented databasesFree database management systemsNoSQLSoftware using the GNU AGPL licenseStructured storage
+Navigation menu
+Not logged inTalkContributionsCreate accountLog inArticleTalkReadEditView historySearch
+
+Search Wikipedia
+Go
+Main page
+Contents
+Featured content
+Current events
+Random article
+Donate to Wikipedia
+Wikipedia store
+Interaction
+Help
+About Wikipedia
+Community portal
+Recent changes
+Contact page
+Tools
+What links here
+Related changes
+Upload file
+Special pages
+Permanent link
+Page information
+Wikidata item
+Cite this page
+Print/export
+Create a book
+Download as PDF
+Printable version
+In other projects
+Wikimedia Commons
+Languages
+العربية
+Български
+Català
+Čeština
+Deutsch
+Español
+Euskara
+فارسی
+Français
+한국어
+Հայերեն
+Bahasa Indonesia
+Italiano
+עברית
+Magyar
+Nederlands
+日本語
+Polski
+Português
+Română
+Русский
+Shqip
+Српски / srpski
+தமிழ்
+Türkçe
+Українська
+中文
+Edit links
+This page was last edited on 16 June 2017, at 15:06.
+Text is available under the Creative Commons Attribution-ShareAlike License; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+
+---------------------------------------FILE 1 ENDS HERE---------------------------------

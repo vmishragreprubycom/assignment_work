@@ -1,0 +1,325 @@
+----------------------------THIS IS FILE 4-----------------------------
+
+o   o  o-o  o-o   o--o     o  o-o  
+|\  | o   o |  \  |        | |     
+| \ | |   | |   O O-o      |  o-o  
+|  \| o   o |  /  |    \   o     | 
+o   o  o-o  o-o   o--o  o-o  o--o  
+                                   
+                                   
+  
+  
+Node.js is an open-source, cross-platform JavaScript run-time environment for executing JavaScript code server-side. Historically, JavaScript was used primarily for client-side scripting, in which scripts written in JavaScript are embedded in a webpage's HTML, to be run client-side by a JavaScript engine in the user's web browser. Node.js enables JavaScript to be used for server-side scripting, and runs scripts server-side to produce dynamic web page content before the page is sent to the user's web browser. Consequently, Node.js has become one of the foundational elements of the "JavaScript everywhere" paradigm,[4] allowing web application development to unify around a single programming language, rather than rely on a different language for writing server side scripts.
+
+Though .js is the conventional filename extension for JavaScript code, the name "Node.js" does not refer to a particular file in this context and is merely the name of the product. Node.js has an event-driven architecture capable of asynchronous I/O. These design choices aim to optimize throughput and scalability in Web applications with many input/output operations, as well as for real-time Web applications (e.g., real-time communication programs and browser games).[5]
+
+The Node.js distributed development project, governed by the Node.js Foundation,[6] is facilitated by the Linux Foundation's Collaborative Projects program.[7]
+
+Corporate users of Node.js software include GoDaddy,[8] Groupon,[9] IBM,[10] LinkedIn,[11][12] Microsoft,[13][14] Netflix,[15] PayPal,[16][17] Rakuten, SAP, Tuenti, [18] Voxer,[19] Walmart,[20] Yahoo!,[21] and Cisco Systems.
+<>
+Contents  [hide] 
+1	History
+2	Overview
+2.1	Platform architecture
+2.2	Industry support
+3	Releases
+4	Technical details
+4.1	Threading
+4.2	V8
+4.3	Package management
+4.4	Unified API
+4.5	Event loop
+5	Project governance
+6	Alternatives
+7	See also
+8	References
+9	Further reading
+10	External links
+History[edit]
+
+Ryan Dahl, creator of Node.js, in 2010
+Node.js was originally written by Ryan Dahl in 2009,[22] about thirteen years after the introduction of the first server-side JavaScript environment, Netscape's LiveWire Pro Web.[23] The initial release supported only Linux and Mac OS X. Its development and maintenance was led by Dahl and later sponsored by Joyent.[24]
+
+Dahl was inspired to create Node.js after seeing a file upload progress bar on Flickr. The browser did not know how much of the file had been uploaded and had to query the Web server. Dahl desired an easier way.[5][25]
+
+Dahl criticized the limited possibilities of the most popular web server in 2009, Apache HTTP Server, to handle a lot of concurrent connections (up to 10,000 and more) and the most common way of creating code (sequential programming), when code either blocked the entire process or implied multiple execution stacks in the case of simultaneous connections.[26]
+
+Dahl demonstrated the project at the inaugural European JSConf on November 8, 2009.[27][28][29] Node.js combined Google's V8 JavaScript engine, an event loop and a low-level I/O API.[30] The project received a standing ovation.[31]
+
+In January 2010, a package manager was introduced for the Node.js environment called npm.[32] The package manager makes it easier for programmers to publish and share source code of Node.js libraries and is designed to simplify installation, updating and uninstallation of libraries.[30]
+
+In June 2011, Microsoft and Joyent implemented a native Windows version of Node.js.[33] The first Node.js build supporting Windows was released in July 2011.
+
+In January 2012, Dahl stepped aside, promoting coworker and npm creator Isaac Schlueter to manage the project.[34] In January 2014, Schlueter announced that Timothy J. Fontaine would lead the project.[35]
+
+In December 2014, Fedor Indutny started io.js, a fork of Node.js. Due to the internal conflict over Joyent's governance, io.js was created as an open governance alternative with a separate technical committee.[36][37] Unlike Node.js,[38] the authors planned to keep io.js up-to-date with the latest releases of the Google V8 JavaScript engine.[39]
+
+In February 2015, the intent to form a neutral Node.js Foundation was announced. By June 2015, the Node.js and io.js communities voted to work together under the Node.js Foundation.[40]
+
+In September 2015, Node.js v0.12 and io.js v3.3 were merged back together into Node v4.0.[41] This brought V8 ES6 features into Node.js, and a long-term support release cycle.[42] As of 2016, the io.js website recommends that developers switch back to Node.js and that no further releases of io.js are planned due to the merger.[43]
+
+Overview[edit]
+Node.js allows the creation of Web servers and networking tools using JavaScript and a collection of "modules" that handle various core functionality.[27][30][44][45][46] Modules are provided for file system I/O, networking (DNS, HTTP, TCP, TLS/SSL, or UDP), binary data (buffers), cryptography functions, data streams and other core functions.[30][45][47] Node.js's modules use an API designed to reduce the complexity of writing server applications.[30][45]
+
+Node.js applications can run on Linux, macOS, Microsoft Windows, NonStop,[48] and Unix servers. They can alternatively be written with CoffeeScript[49] (a JavaScript alternative), Dart or Microsoft TypeScript (strongly typed forms of JavaScript), or any other language that can compile to JavaScript.[49]
+
+Node.js is primarily used to build network programs such as Web servers.[44] The biggest difference between Node.js and PHP is that most functions in PHP block until completion (commands execute only after previous commands have completed), while functions in Node.js are designed to be non-blocking (commands execute in parallel, and use callbacks to signal completion or failure).[44]
+
+Platform architecture[edit]
+Node.js brings event-driven programming to web servers, enabling development of fast web servers in JavaScript.[30] Developers can create highly scalable servers without using threading, by using a simplified model of event-driven programming that uses callbacks to signal the completion of a task.[30] Node.js was created because concurrency is difficult in many server-side programming languages, and often leads to poor performance.[27] Node.js connects the ease of a scripting language (JavaScript) with the power of Unix network programming.[30]
+
+Node.js was built on the Google V8 JavaScript engine since it was open-sourced under the BSD license, extremely fast, and proficient with internet fundamentals like HTTP, DNS, TCP.[27] Also, JavaScript was a well-known language, making Node.js immediately accessible to the entire web development community.[27]
+
+Industry support[edit]
+People have built thousands of open-source libraries for Node.js - most of them hosted on the npm website. The Node.js developer community has two main mailing lists and the IRC channel #node.js on freenode. There is an annual Node.js developer conference, called NodeConf.[50]
+
+The open-source community has developed server frameworks to accelerate the development of applications. Such frameworks include Connect, Express.js, Socket.IO, Koa.js, Hapi.js, Sails.js, Meteor, Derby, and many others.[30][51]
+
+Modern desktop IDEs provide editing and debugging features specifically for Node.js applications. Such IDEs include Atom, Brackets, JetBrains WebStorm,[52][53] Microsoft Visual Studio (with Node.js Tools for Visual Studio,[54] or TypeScript with Node definitions[55][56][57][58]), NetBeans,[59] Nodeclipse Enide Studio[60] (Eclipse-based) and Visual Studio Code.[61][62] Certain online web-based IDEs also support Node.js, such as Codeanywhere, Codenvy, Cloud9 IDE, Koding and the visual flow editor in Node-RED.
+
+Releases[edit]
+Release	Code name	LTS status	Active LTS start	Maintenance start	Maintenance end
+v0.10		End-of-life	-	2015-10-01	2016-10-31
+v0.12		End-of-life	-	2016-04-01	2016-12-31
+v4	Argon	Active	2015-10-01	2017-04-01	2018-04-01
+v5		No LTS	N/A
+v6	Boron	Active	2016-10-18	2018-04-18	2019-04-18
+v7		No LTS	N/A
+v8	Carbon[63]	Planned	2017-10-01[64]	2019-04-01[65]	TBD
+New major releases of Node.js are cut from the Github master branch every six months. Even-numbered versions are cut in April and odd-numbered versions are cut in October. When a new odd version is released, the previous even version transitions to Long Term Support (LTS), which gives that version 18 months of active support from the date it is designated LTS. After these 18 months expire, an LTS release will receive an additional 12 months of maintenance support. An active version will receive non-breaking backports of changes a few weeks after they land in the current release. A maintenance release will only receive critical fixes and documentation updates.[66]
+
+The strategy and policy of LTS releases are managed by the LTS Working Group in collaboration with the Technical Steering Committee of the Node.js Foundation.
+
+Technical details[edit]
+
+This section may be too technical for most readers to understand. Please help improve it to make it understandable to non-experts, without removing the technical details. The talk page may contain suggestions. (August 2015) (Learn how and when to remove this template message)
+Node.js is a Javascript runtime environment that processes incoming requests in a loop, called the event loop.
+
+Threading[edit]
+Node.js operates on a single thread, using non-blocking I/O calls, allowing it to support tens of thousands of concurrent connections without incurring the cost of thread context switching.[67] The design of sharing a single thread between all the requests that uses the observer pattern is intended for building highly concurrent applications, where any function performing I/O must use a callback. In order to accommodate the single-threaded event loop, Node.js utilizes the libuv library that in turn uses a fixed-sized thread pool that is responsible for some of the non-blocking asynchronous I/O operations.[5]
+
+A downside of this single-threaded approach is that Node.js doesn't allow vertical scaling by increasing the number of CPU cores of the machine it is running on without using an additional module, such as cluster,[68] StrongLoop Process Manager[69] or pm2.[70] However, developers can increase the default number of threads in the libuv thread pool; these threads are likely to be distributed across multiple cores by the server operating system.[71]
+
+Execution of parallel tasks in Node.js is handled by a thread pool. The main thread call functions post tasks to the shared task queue that threads in the thread pool pull and execute. Inherently non-blocking system functions like networking translates to kernel-side non-blocking sockets, while inherently blocking system functions like file I/O run in a blocking way on its own thread. When a thread in the thread pool completes a task, it informs the main thread of this that in turn wakes up and execute the registered callback. Since callbacks are handled in serial on the main thread, long lasting computations and other CPU-bound tasks will freeze the entire event-loop until completion.[citation needed]
+
+V8[edit]
+V8 is the JavaScript execution engine built for Google Chrome and open-sourced by Google in 2008. Written in C++, V8 compiles JavaScript source code to native machine code instead of interpreting it in real time.[5]
+
+Node.js uses libuv to handle asynchronous events. Libuv is an abstraction layer for network and file system functionality on both Windows and POSIX-based systems like Linux, macOS, OSS on NonStop and Unix.
+
+The core functionality of Node.js resides in a JavaScript library. The Node.js bindings, written in C++, connect these technologies to each other and to the operating system.
+
+Package management[edit]
+npm is the pre-installed package manager for the Node.js server platform. It is used to install Node.js programs from the npm registry, organizing the installation and management of third-party Node.js programs. npm is not to be confused with the CommonJS require() statement. It is not used to load code; instead, it is used to install code and manage code dependencies from the command line. The packages found in the npm registry can range from simple helper libraries like Lodash to task runners like Grunt.
+
+Unified API[edit]
+Node.js can be combined with a browser, a database supporting JSON data (such as Postgres,[72] MongoDB or CouchDB) and JSON for a unified JavaScript development stack. With the adaptation of what were essentially server-side development patterns like MVC, MVP, MVVM, etc., Node.js allows the reuse of the same model and service interface between client-side and server-side.
+
+Event loop[edit]
+Node.js registers itself with the operating system in order to be notified when a connection is made, and the operating system will issue a callback. Within the Node.js runtime, each connection is a small heap allocation. Traditionally, relatively heavyweight OS processes or threads handled each connection. Node.js uses an event loop for scalability, instead of processes or threads.[73] In contrast to other event-driven servers, Node.js's event loop does not need to be called explicitly. Instead callbacks are defined, and the server automatically enters the event loop at the end of the callback definition. Node.js exits the event loop when there are no further callbacks to be performed.
+
+Project governance[edit]
+In 2015, various branches of the greater Node.js community began working under the vendor-neutral Node.js Foundation. The stated purpose of the organization "is to enable widespread adoption and help accelerate development of Node.js and other related modules through an open governance model that encourages participation, technical contribution, and a framework for long-term stewardship by an ecosystem invested in Node.js' success."[74]
+
+The Node.js Foundation Technical Steering Committee (TSC) is the technical governing body of the Node.js Foundation. The TSC is responsible for the core Node.js repo as well as dependent and adjacent projects. Generally the TSC delegates administration of these projects to working groups or committees.[75] The LTS group which manages long term supported releases is one such group. Other current groups include: Website, Streams, Build, Diagnostics, i18n, Evangelism, Docker, Addon API, Benchmarking, Post-mortem, Intl, Documentation, and Testing.[76]
+
+Alternatives[edit]
+Similar open source event-driven server frameworks for other platforms include:
+
+EventMachine for Ruby
+libuv for C
+Perl Object Environment for Perlfor Perl
+reactPHP (libev, ExtEvent or libevent) or amphp (libuv) for PHP
+Twisted for Python
+Vert.x for Java, JavaScript, Groovy, Ruby, Python, Scala, Clojure and Ceylon
+Node.js may utilize code written in other programming languages using:
+
+Edge.js allows Microsoft .NET applications to run Node.js scripts in-process, and allows Node.js servers to utilize .NET compiled code via async callbacks.[77][78][79]
+Luvit implements the Node.js APIs for the language Lua[80]
+Node-julia allows using Julia with Node.js/io.js
+The COBOL bridge for Node.js allows using COBOL with Node.js[81]
+See also[edit]
+	Free software portal
+List of JavaScript libraries
+MEAN (software bundle)
+Online JavaScript IDE
+Rhino (JavaScript engine)
+Node-RED
+Application server
+References[edit]
+Jump up ^ "node-v0.x-archive on GitHub". Retrieved 2 August 2014.
+Jump up ^ "Node.js Changelog". Retrieved 2017-06-15.
+Jump up ^ "Node.js Changelog". Retrieved 2017-04-04.
+Jump up ^ https://www.ibm.com/developerworks/community/blogs/gcuomo/entry/javascript_everywhere_and_the_three_amigos?lang=en
+^ Jump up to: a b c d Laurent Orsini (2013-11-07). "What You Need To Know About Node.js". readwrite. Archived from the original on 2013-11-07. Retrieved 2016-01-22.
+Jump up ^ "Node.js Foundation - Node.js". Retrieved 4 July 2015.
+Jump up ^ "Linux Foundation Collaborative Projects". Retrieved 4 July 2015.
+Jump up ^ Why GoDaddy's Nodejitsu deal is great for Node.js, VentureBeat, February 10, 2015
+Jump up ^ Geitgey, Adam (30 October 2013). "I-Tier: Dismantling the Monoliths". Groupon. Retrieved 30 April 2014.
+Jump up ^ "IBM Bluemix". Retrieved 4 July 2015.
+Jump up ^ "You'll never believe how LinkedIn built its new iPad app". VentureBeat. May 2, 2012. Retrieved May 10, 2012.
+Jump up ^ "Blazing fast node.js: 10 performance tips from LinkedIn Mobile". Retrieved 7 April 2015.
+Jump up ^ Baxter-Reynolds, Matthew (November 9, 2011). "Here's why you should be happy that Microsoft is embracing Node.js". London: The Guardian. Retrieved May 10, 2012.
+Jump up ^ "WebMatrix - Front End Web Developers take note (ASP.NET, PHP, node.js and more)". Retrieved 2 August 2014.
+Jump up ^ Node.js in Flames November 19, 2014
+Jump up ^ "Clash of the Titans: Releasing the Kraken, NodeJS @paypal". fluentconf.com. May 28, 2013. Retrieved September 11, 2013.
+Jump up ^ "All such companies and their products in which Node.js is used". Retrieved 2 August 2014.
+Jump up ^ "SAP AppBuilder". SAP. March 10, 2014. Retrieved March 10, 2014.
+Jump up ^ The Node Ahead: JavaScript leaps from browser into future, The Register, March 1, 2011
+Jump up ^ "Why Walmart is using Node.js". VentureBeat. January 24, 2012. Retrieved May 10, 2012.
+Jump up ^ "Yahoo! Announces Cocktails Shaken, Not Stirred". Retrieved 7 April 2015.[dead link]
+Jump up ^ "About Node.js, and why you should add Node.js to your skill set?". Training.com. Training.com. Retrieved 23 October 2016.
+Jump up ^ "Netscape opens intranet attack". CNET. Retrieved 2017-04-20.
+Jump up ^ Ryan Dahl (2010-11-09). "Joyent and Node". Google Groups. Retrieved 2015-02-05.
+Jump up ^ Harris, Amber (April 1, 2012). "The Birth of Node: Where Did it Come From? Creator Ryan Dahl Shares the History". Devops Angle. Retrieved 26 October 2013.
+Jump up ^ "PHP 7 vs Node.js? They Can Be Partners, Not Competitors For a Developer!". Retrieved 21 December 2016.
+^ Jump up to: a b c d e Sams Teach Yourself Node.js in 24 Hours, Sams Publishing, 05-Sep-2012
+Jump up ^ "Ryan Dahl at JSConf EU 2009".
+Jump up ^ "Ryan Dahl at JSConf EU 2009 Video".
+^ Jump up to: a b c d e f g h i Professional Node.js: Building JavaScript Based Scalable Software, John Wiley & Sons, 01-Oct-2012
+Jump up ^ "Video: Node.js by Ryan Dahl".
+Jump up ^ "Earliest releases of npm". GitHub. Retrieved 27 July 2016.
+Jump up ^ "Porting Node to Windows With Microsoft's Help". Retrieved 17 April 2016.
+Jump up ^ Dahl, Ryan. "New gatekeeper". Retrieved 26 October 2013.
+Jump up ^ Schlueter, Isaac (January 15, 2014). "The Next Phase of Node.js". Retrieved 21 January 2014.
+Jump up ^ Krill, Paul (Dec 4, 2014). "Why io.js Decided to Fork Node.js". JavaWorld. Retrieved Dec 15, 2014.
+Jump up ^ Q&A: Why io.js decided to fork Node.js, Infoworld Tech Watch
+Jump up ^ Ben Noordhuis (Nov 12, 2014). "Issue 3692: function suddenly becomes undefined". V8 JavaScript Engine Issues. Retrieved 2 February 2015.
+Jump up ^ Mikeal, Rogers (January 28, 2015). "State of io.js". Retrieved 2 February 2015.
+Jump up ^ "Node.js Foundation Advances Community Collaboration, Announces New Members and Ratified Technical Governance". Retrieved 4 July 2015.
+Jump up ^ "Node.js Foundation Combines Node.js and io.js Into Single Codebase in New Release". Retrieved 28 Jan 2016.
+Jump up ^ "io.js and Node.js merge". Retrieved 27 June 2015.
+Jump up ^ Io.js, JavaScript I/O, "io.js has merged with the Node.js project again. There won't be any further io.js releases. All of the features in io.js are available in Node.js v4 and above."
+^ Jump up to: a b c Node.js for PHP Developers, O'Reilly Media, Inc., 2013
+^ Jump up to: a b c Node.js Essentials, Packt Publishing, 09-Sep-2014
+Jump up ^ Smashing Node.js: JavaScript Everywhere, John Wiley & Sons, 14-Aug-2012
+Jump up ^ Modules, Nodejs Website
+Jump up ^ "bomBora - Node.js for NonStop". Infrasoft. Retrieved 14 August 2015.
+^ Jump up to: a b "CoffeeScript on Node.js". O'Reilly Media, Inc. April 15, 2013. Retrieved May 17, 2015.
+Jump up ^ Finley, Klint (April 7, 2011). "NodeConf Schedule Announced". ReadWriteHack. Retrieved 2 August 2014.
+Jump up ^ Express.js Guide: The Comprehensive Book on Express.js, Azat Mardan, 28-May-2014
+Jump up ^ Node.js, WebStorm supports integration with the Node.js runtime environment, WebStorm Help
+Jump up ^ Running and Debugging Node.js, WebStorm Help
+Jump up ^ "Node.js Tools for Visual Studio". Retrieved 1 Feb 2016.
+Jump up ^ soywiz/typescript-node-definitions TypeScript's typings for some popular node.js modules, GitHub
+Jump up ^ DefinitelyTyped, GitHub
+Jump up ^ The repository for high quality TypeScript type definitions Archived February 3, 2016, at the Wayback Machine.
+Jump up ^ ImageBoard, A Node.js + Express + MongoDB application built using TypeScript on the server, TypeScript Samples
+Jump up ^ Krill, Paul (2015-11-10). "Node.js takes center stage in NetBeans 8.1". InfoWorld.
+Jump up ^ Nodeclipse, Enide -- Node.JS development in Eclipse, Nodeclipse Website
+Jump up ^ Hello Visual Studio Code (with NodeJS), Channel 9, Microsoft
+Jump up ^ Node.js Applications with VS Code, Visual Studio Code
+Jump up ^ https://github.com/nodejs/LTS/issues/163
+Jump up ^ https://github.com/nodejs/LTS#lts-schedule1
+Jump up ^ https://github.com/nodejs/LTS#lts-schedule1
+Jump up ^ "nodejs/LTS". GitHub. Retrieved 2017-03-03.
+Jump up ^ "Node.js w/1M concurrent connections!". caustik's blog.
+Jump up ^ "Cluster Node.js v5.5.0 Manual & Documentation".
+Jump up ^ "StrongLoop Process Manager".
+Jump up ^ "GitHub - Unitech/pm2: Production process manager for Node.js applications with a built-in load balancer". GitHub.
+Jump up ^ Aleksander Kasiuk (22 April 2015). "On problems with threads in node.js - Future Processing".
+Jump up ^ "PostgreSQL: Documentation: 9.4: JSON Types". www.postgresql.org. Retrieved 2016-10-20.
+Jump up ^ About Node.js, Node.js Website
+Jump up ^ Foundation, Node.js. "Node.js Foundation | Node.js". nodejs.org. Retrieved 2017-03-08.
+Jump up ^ "nodejs/TSC". GitHub. Retrieved 2017-03-08.
+Jump up ^ Foundation, Node.js. "Working Groups | Node.js". nodejs.org. Retrieved 2017-03-08.
+Jump up ^ Tomasz Janczuk. "Edge.js".
+Jump up ^ Using Edge.js to combine Node.js and .NET, .NET Curry
+Jump up ^ Edge.js bridges the gap between Node.js and .NET, TechRepublic, Tony Patton, July 1, 2014
+Jump up ^ "Luvit.io".
+Jump up ^ "cobol".
+Further reading[edit]
+Hughes-Croucher, Tom; Wilson, Mike (April 2012), Up and Running with Node.js (First ed.), O'Reilly Media, p. 204, ISBN 978-1-4493-9858-3
+Ornbo, George (September 2012), Sams Teach Yourself Node.js in 24 Hours (First ed.), SAMS Publishing, p. 440, ISBN 978-0-672-33595-2
+Teixeira, Pedro (October 2012), Professional Node.js (First ed.), John Wiley & Sons, p. 408, ISBN 978-1-118-22754-1
+Randal L. Schwartz and Aaron Newcomb (9 January 2013). "Episode 237: Node.js". twit.tv/show/floss-weekly (Podcast). TWiT.tv. Event occurs at 1:08:13. Retrieved 9 January 2013.
+Kurniawan, Agus (July 2012), Nodejs Programming By Example (First ed.), PE Press, p. 67
+Gackenheimer, Cory (October 2013), Node.js Recipes: A Problem-Solution Approach (First ed.), Apress, p. 376, ISBN 978-1-4302-6058-5
+Ribeiro Pereira, Caio (February 2016), Building APIs with Node.js (First ed.), Leanpub, p. 152
+External links[edit]
+	Wikimedia Commons has media related to Node.js.
+Official website
+Node.js on GitHub
+[show] v t e
+Node.js
+[show] v t e
+JavaScript
+Authority control	
+GND: 1027030742
+Categories: Free software programmed in C++Free software programmed in JavaScriptJavaScript librariesJoyentLinux Foundation projectsSoftware using the MIT license
+Navigation menu
+Not logged inTalkContributionsCreate accountLog inArticleTalkReadEditView historySearch
+
+Search Wikipedia
+Go
+Main page
+Contents
+Featured content
+Current events
+Random article
+Donate to Wikipedia
+Wikipedia store
+Interaction
+Help
+About Wikipedia
+Community portal
+Recent changes
+Contact page
+Tools
+What links here
+Related changes
+Upload file
+Special pages
+Permanent link
+Page information
+Wikidata item
+Cite this page
+Print/export
+Create a book
+Download as PDF
+Printable version
+In other projects
+Wikimedia Commons
+Languages
+العربية
+Azərbaycanca
+Беларуская
+Български
+Català
+Čeština
+Dansk
+Deutsch
+Eesti
+Ελληνικά
+Español
+Euskara
+فارسی
+Français
+한국어
+हिन्दी
+Bahasa Indonesia
+Italiano
+עברית
+Magyar
+മലയാളം
+Bahasa Melayu
+Nederlands
+日本語
+Norsk bokmål
+Polski
+Português
+Русский
+Simple English
+کوردیی ناوەندی
+Svenska
+Türkçe
+Українська
+اردو
+Tiếng Việt
+中文
+Edit links
+This page was last edited on 15 June 2017, at 14:57.
+Text is available under the Creative Commons Attribution-ShareAlike License; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policyAbout WikipediaDisclaimersContact WikipediaDevelopersCookie statementMobile view
+
+----------------------------------FILE 4 ENDS HERE-----------------------------------
