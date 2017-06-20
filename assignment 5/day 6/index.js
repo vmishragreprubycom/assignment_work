@@ -8,21 +8,16 @@ const files = [
 ];
 
 function readFile(file, index) {
-  try {
-    fs.readFile(file, 'utf8', (err, data) => {
-      if (err) {
-        throw err;
-      }
-      console.log(data);
-      index++;
-      if (index < files.length) {
-        readFile(files[index],
-          index);
-      }
-    });
-  } catch (err) {
-    readFile(file, index);
-  }
+  fs.readFile(file, 'utf8', (err, data) => {
+    if (err) {
+      return console.log(err);
+    }
+    console.log(data);
+    index++;
+    if (index < files.length) {
+      readFile(files[index], index);
+    }
+  });
 }
 
 readFile(files[0], 0);
