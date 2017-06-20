@@ -1,5 +1,6 @@
 const fs = require('fs');
-const files = ["./files/mongodb.txt",
+const files = [
+  "./files/mongodb.txt",
   "./files/expressjs.txt",
   "./files/angularjs.txt",
   "./files/nodejs.txt",
