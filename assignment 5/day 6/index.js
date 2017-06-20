@@ -7,13 +7,15 @@ const files = ["./files/mongodb.txt",
 ];
 
 function readFile(file, index) {
-  fs.readFile(file, 'utf8', function(
-    err, data) {
-    if (err) console.log(err);
+  fs.readFile(file, 'utf8', function(err, data) {
+    if (err) {
+      console.log(err);
+    }
     console.log(data);
     index++;
-    if (index < files.length)
+    if (index < files.length) {
       readFile(files[index], index);
+    }
   });
 }
 
