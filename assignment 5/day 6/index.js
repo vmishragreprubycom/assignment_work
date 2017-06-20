@@ -10,7 +10,7 @@ const files = [
 function readFile(file, index) {
   fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
-      return console.log(err);
+      throw err;
     }
     console.log(data);
     index++;
@@ -20,4 +20,8 @@ function readFile(file, index) {
   });
 }
 
-readFile(files[0], 0);
+try {
+  readFile(files[0], 0);
+} catch (err) {
+  console.log(err);
+}
