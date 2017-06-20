@@ -12,26 +12,26 @@ function readFile(file) {
 }
 
 readFile("./files/mongodb.txt")
-  .then((result) => {
+ .then((result) => {
     console.log(result);
     return readFile("./files/expressjs.txt");
   })
-  .then((result) => {
+ .then((result) => {
     console.log(result);
     return readFile("./files/angularjs.txt");
   })
-  .then((result) => {
+ .then((result) => {
     console.log(result);
     return readFile("./files/nodejs.txt");
   })
-  .then((result) => {
+ .then((result) => {
     console.log(result);
     return readFile("./files/fullStack.txt");
   })
-  .then((result) => {
+ .then((result) => {
     console.log(result);
     return readFile("./files/fullStack.txt");
   })
-  .catch((err) => {
+ .catch((err) => {
     console.log(err);
   });
