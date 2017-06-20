@@ -1,0 +1,103 @@
+---------------------------------------THIS IS FILE 2---------------------------------------
+
+o--o o   o o--o  o--o  o--o  o-o   o-o  
+|     \ /  |   | |   | |    |     |     
+O-o    O   O--o  O-Oo  O-o   o-o   o-o  
+|     / \  |     |  \  |        |     | 
+o--o o   o o     o   o o--o o--o  o--o  
+                                        
+                                                                                                                                         
+                                                                                                                     
+Express.js, or simply Express, is a web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs.[2] It is the de facto standard server framework for Node.js.[3]
+
+The original author, TJ Holowaychuk, described it as a Sinatra-inspired server,[4] meaning that it is relatively minimal with many features available as plugins. Express is the backend part of the MEAN stack, together with MongoDB database and AngularJS frontend framework.[citation needed]
+
+Contents  [hide] 
+1	History
+2	See also
+3	References
+4	Bibliography
+5	External links
+History[edit]
+In June 2014, rights to manage the project were acquired by StrongLoop.[5] StrongLoop was acquired by IBM in September 2015;[6] in January 2016, IBM announced that it would place Express.js under the stewardship of the Node.js Foundation incubator.[7]
+
+See also[edit]
+Meteor
+Socket.IO
+References[edit]
+Jump up ^ "Express 4.x changelog". expressjs.com.
+Jump up ^ "Express.js home page".
+Jump up ^ Case study: How & why to build a consumer app with Node.js. VentureBeat.com.
+Jump up ^ Express 1.0beta. TJ Holowaychuck.
+Jump up ^ "TJ Holowaychuk Passes Sponsorship of Express to StrongLoop". StrongLoop. Retrieved 11 February 2016.
+Jump up ^ "IBM snaps up StrongLoop to add Node.js smarts to BlueMix". Infoworld. IDG. Retrieved 11 February 2016.
+Jump up ^ "Node.js Foundation to shepherd Express Web framework". Infoworld. IDG. Retrieved 11 February 2016.
+Bibliography[edit]
+[icon]	This section is empty. You can help by adding to it. (May 2017)
+External links[edit]
+[hide] v t e
+Node.js
+Platform	
+Node.js NPM V8 CommonJS
+Node.js logo.svg
+Frameworks	
+MEAN MongoDB Express.js AngularJS/Angular MEEN (substituted with Ember.js) Backbone.js Meteor
+Libraries	
+Lodash Underscore.js React.js
+Languages	
+JavaScript CoffeeScript TypeScript
+Hosts	
+Joyent Nodejitsu OpenShift Linode DigitalOcean
+
+
+Stub icon	This Web-software-related article is a stub. You can help Wikipedia by expanding it.
+Categories: JavaScript librariesWeb frameworksWeb software stubs
+Navigation menu
+Not logged inTalkContributionsCreate accountLog inArticleTalkReadEditView historySearch
+
+Search Wikipedia
+Go
+Main page
+Contents
+Featured content
+Current events
+Random article
+Donate to Wikipedia
+Wikipedia store
+Interaction
+Help
+About Wikipedia
+Community portal
+Recent changes
+Contact page
+Tools
+What links here
+Related changes
+Upload file
+Special pages
+Permanent link
+Page information
+Wikidata item
+Cite this page
+Print/export
+Create a book
+Download as PDF
+Printable version
+Languages
+Català
+Deutsch
+فارسی
+Français
+עברית
+日本語
+Norsk bokmål
+Русский
+Српски / srpski
+Türkçe
+Українська
+Edit links
+This page was last edited on 13 May 2017, at 08:19.
+Text is available under the Creative Commons Attribution-ShareAlike License; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policyAbout WikipediaDisclaimersContact WikipediaDevelopersCookie statementMobile view
+
+---------------------------------FILE 2 ENDS HERE----------------------------------
