@@ -7,9 +7,9 @@ const files = ["./files/mongodb.txt",
 ];
 
 function readFile(file, index) {
-  fs.readFile(file, 'utf8', function(err, data) {
+  fs.readFile(file, 'utf8', (err, data) => {
     if (err) {
-      console.log(err);
+      throw err;
     }
     console.log(data);
     index++;
