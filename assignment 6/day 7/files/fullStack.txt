@@ -1,0 +1,186 @@
+--------------------THIS IS FILE 5--------------------------
+
+  o-o  o-O-o   O    o-o o  o 
+|       |    / \  /    | /  
+ o-o    |   o---oO     OO   
+    |   |   |   | \    | \  
+o--o    o   o   o  o-o o  o 
+                  
+                                                                                                                                                
+
+In computing, a solution stack or software stack is a set of software subsystems or components needed to create a complete platform such that no additional software is needed to support applications. Applications are said to "run on" or "run on top of" the resulting platform. Some definitions of a platform overlap with what is known as system software.
+
+For example, to develop an IT solution; in the case of a web application the architect defines the stack as the target operating system, web server, database, and programming language. Another version of a solution stack is operating system, middleware, database, and applications.[1] Regularly, the components of a solution stack are developed by different developers independently from one another.
+
+Some components/subsystems of an overall system are chosen together often enough that the particular set is referred to by a name representing the whole, rather than by naming the parts. Typically, the name is an acronym representing the individual components.
+
+Some common named stacks[edit]
+LAMP
+Linux (operating system)
+Apache (web server)
+MySQL or MariaDB (database management systems)
+Perl, PHP, or Python (scripting languages)
+LAPP
+Linux (operating system)
+Apache (web server)
+PostgreSQL (database management systems)
+Perl, PHP, or Python (scripting languages)
+LNMP/LEMP
+Linux (operating system)
+Nginx (web server)
+MySQL or MariaDB (database management systems)
+Perl, PHP, or Python (scripting languages)
+LLMP
+Linux (operating system)
+Lighttpd (web server)
+MySQL or MariaDB (database management systems)
+Perl, PHP, or Python (scripting languages)
+LYME (software bundle) and LYCE (software bundle)
+Linux (operating system)
+Yaws (web server) written in Erlang
+Mnesia or CouchDB (database) written in Erlang
+Erlang (functional programming language)
+GLASS (software bundle)
+GemStone (database and application server)
+Linux (operating system)
+Apache (web server)
+Seaside (web framework)
+Smalltalk (programming language)
+LEAP (software bundle)
+The cloud stack of LEAP for:
+Linux (operating system)
+Eucalyptus (free and open-source alternative to the Amazon Elastic Compute Cloud)
+AppScale (Cloud computing-framework and free and open-source alternative to Google App Engine),
+Python (programming language)
+OpenStack
+Linux – OpenStack controller nodes run exclusively on Linux
+OpenStack – providing an infrastructure as a service (IaaS)
+Ganeti
+Xen or KVM (hypervisor)
+Linux with LVM (mass-storage device management)
+Distributed Replicated Block Device (storage replication)
+Ganeti (virtual machine cluster management tool)
+Ganeti Web Manager (web interface)
+XAMPP, cross-platform
+X (operating system)
+Apache (web server)
+MySQL or MariaDB (database)
+PHP (programming language)
+Perl (programming language)
+MAMP
+Mac OS X (operating system)
+Apache (web server)
+MySQL or MariaDB (database)
+PHP, Perl, or Python (programming languages)
+WAMP
+Windows (operating system)
+Apache (web server)
+MySQL or MariaDB (database)
+PHP, Perl, or Python (programming language)
+NMP
+Nginx (web server)
+MySQL or MariaDB (database)
+PHP (programming language)
+WIMP
+Windows (operating system)
+Internet Information Services (web server)
+MySQL or MariaDB (database)
+PHP, Perl, or Python (programming language)
+WISA
+Windows Server (operating system)
+Internet Information Services (web server)
+SQL Server (database)
+ASP.NET (programming language)
+WINS
+Windows Server (operating system)
+Internet Information Services (web server)
+.NET (software framework)
+SQL Server (database)
+OpenACS-stack
+Linux or Windows (operating system)
+AOLserver (web server)
+OpenACS (web application framework)
+PostgreSQL or Oracle Database (database)
+Tcl (scripting language)
+MEAN
+MongoDB (database)
+Express.js (app controller layer)
+Angular.js (web app presentation)
+Node.js (web server)
+MERN
+MongoDB (database)
+Express.js (app controller layer)
+React.js (web app presentation)
+Node.js (web server)
+SMACK
+Apache Spark (Big Data and MapReduce)
+Apache Mesos (Node startup/shutdown)
+Akka (toolkit) (Actor implementation)
+Apache Cassandra (Database)
+Apache Kafka (Messaging)
+XRX
+XML database (database such as BaseX, eXist, MarkLogic Server)
+XQuery (Query language)
+REST (client interface)
+XForms (client)
+BCHS[2]
+BSD (operating system)
+C (programming language)
+httpd (web server)
+SQLite (database)
+JAMstack[3]
+JavaScript (programming language)
+API (api)
+Markup (content)
+See also[edit]
+Content management framework
+Content management system
+List of Apache–MySQL–PHP packages
+List of Nginx–MySQL–PHP packages
+Web application framework
+References[edit]
+Jump up ^ Mimoso, Michael S. (24 February 2003). "Red Hat: Linux served at vertical data center dinner tables". SearchEnterpriseLinux.com. Retrieved 2009-08-09.
+Jump up ^ learnbchs.org
+Jump up ^ jamstack.org
+Categories: Web frameworks
+Navigation menu
+Not logged inTalkContributionsCreate accountLog inArticleTalkReadEditView historySearch
+
+Search Wikipedia
+Go
+Main page
+Contents
+Featured content
+Current events
+Random article
+Donate to Wikipedia
+Wikipedia store
+Interaction
+Help
+About Wikipedia
+Community portal
+Recent changes
+Contact page
+Tools
+What links here
+Related changes
+Upload file
+Special pages
+Permanent link
+Page information
+Wikidata item
+Cite this page
+Print/export
+Create a book
+Download as PDF
+Printable version
+Languages
+Deutsch
+Español
+Français
+Edit links
+This page was last edited on 28 May 2017, at 11:20.
+Text is available under the Creative Commons Attribution-ShareAlike License; additional terms may apply. By using this site, you agree to the Terms of Use and Privacy Policy. Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization.
+Privacy policyAbout WikipediaDisclaimersContact WikipediaDevelopersCookie statementMobile view.
+
+---------------------------END OF FILE 5-----------------------------------
