@@ -1,4 +1,4 @@
-module.exports.secondLargest = function(array) {
+function secondLargest(array) {
   var max = Number.MIN_VALUE;
   var secondHighest = max;
   for (i = 0; i < array.length; i++) {
@@ -12,3 +12,5 @@ module.exports.secondLargest = function(array) {
   }
   return secondHighest;
 }
+
+module.exports.secondLargest = secondLargest;

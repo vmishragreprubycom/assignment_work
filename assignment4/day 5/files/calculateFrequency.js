@@ -1,4 +1,4 @@
-module.exports.calculateFrequency = function(string) {
+function calculateFrequency(string) {
   output = [];
   for (i = 0; i < string.length; i++) {
     var currentCharacter=string.charAt(i);
@@ -12,3 +12,5 @@ module.exports.calculateFrequency = function(string) {
   }
   return output;
 }
+
+module.exports.calculateFrequency = calculateFrequency;
