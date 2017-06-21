@@ -1,10 +1,14 @@
 swagger: '2.0'
 info:
   description: >-
-    The Root resource provides information on all available resources within the
-    API.
-  version: 1.0.0
-  title: Root
+    Welcome to the swapi, the Star Wars API! This documentation should help you
+    familiarise yourself with the resources available and how to consume them
+    with HTTP requests. If you're after a native helper library then I suggest
+    you scroll down and check out what's available. Read through the getting
+    started section before you dive in. Most of your problems should be solved
+    just by reading through it.
+  version: ''
+  title: Swapi
   contact:
     email: vmishra@grepruby.com
 host: www.swapi.co
@@ -20,30 +24,10 @@ tags:
     externalDocs:
       description: Find out more
       url: 'http://swapi.co/api/people/'
-  - name: planets
-    description: The URL root for Planet resources
-    externalDocs:
-      description: Find out more
-      url: 'http://swapi.co/api/planets/'
-  - name: species
-    description: The URL root for Species resources
-    externalDocs:
-      description: Find out more
-      url: 'http://swapi.co/api/species/'
-  - name: starships
-    description: The URL root for Starships resources
-    externalDocs:
-      description: Find out more
-      url: 'http://swapi.co/api/starships/'
-  - name: vehicles
-    description: The URL root for Vehicles resources
-    externalDocs:
-      description: Find out more
-      url: 'http://swapi.co/api/vehicles/'
 schemes:
   - http
 paths:
-  /films/:
+  /films:
     get:
       tags:
         - Films
@@ -52,12 +36,18 @@ paths:
         - application/json
       produces:
         - application/json
+      parameters:
+        - name: title
+          in: query
+          description: title of the film to be returned.
+          required: false
+          type: string
       responses:
         '200':
           description: OK
           schema:
             $ref: '#/definitions/Films'
-  '/films/{:id}/':
+  '/films/{:id}':
     get:
       tags:
         - Films
@@ -76,8 +66,8 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Films'
-  /films/schema/:
+            $ref: '#/definitions/Film'
+  /films/schema:
     get:
       tags:
         - Films
@@ -90,7 +80,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/Films'
+            $ref: '#/definitions/FilmSchema'
   /people:
     get:
       tags:
@@ -100,6 +90,12 @@ paths:
         - application/json
       produces:
         - application/json
+      parameters:
+        - name: name
+          in: query
+          description: name of this person to be returned
+          required: false
+          type: string
       responses:
         '200':
           description: OK
@@ -125,11 +121,11 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/People'
-  /people/schema/:
+            $ref: '#/definitions/Person'
+  /people/schema:
     get:
       tags:
-        - Films
+        - People
       summary: view the JSON schema for this resource
       consumes:
         - application/json
@@ -139,156 +135,27 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/People'
-  /planets:
-    get:
-      tags:
-        - Planets
-      summary: get all the planet resources
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Planets'
-  '/planets/{:id}':
-    get:
-      tags:
-        - Planets
-      summary: get a specific planet resource
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: ':id'
-          in: path
-          description: id of the planet to be returned
-          required: true
-          type: integer
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Planets'
-  /planet/schema/:
-    get:
-      tags:
-        - Planets
-      summary: view the JSON schema for this resource
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Planets'
-  /species:
-    get:
-      tags:
-        - Species
-      summary: get all the specie resources
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: 'OK schema: $ref: '
-  '/species/{:id}':
-    get:
-      tags:
-        - Species
-      summary: get a specific specie resource
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: ':id'
-          in: path
-          type: integer
-          description: id of the specie to be returned.
-          required: true
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Species'
-  /starships:
-    get:
-      tags:
-        - Starships
-      summary: get all the starship resources
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Starships'
-  '/starships/{:id}':
-    get:
-      tags:
-        - Starships
-      summary: get a specific starship resource
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: ':id'
-          in: path
-          description: id of starship to be returned
-          required: true
-          type: integer
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Starships'
-  /vehicles:
-    get:
-      tags:
-        - Vehicals
-      summary: get all the vehical resources
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Vehicals'
-  '/vehicles/{vehicleId}':
-    get:
-      tags:
-        - Vehicals
-      summary: get a specific vehical resource
-      consumes:
-        - application/json
-      produces:
-        - application/json
-      parameters:
-        - name: vehicleId
-          in: path
-          type: integer
-          required: true
-      responses:
-        '200':
-          description: OK
-          schema:
-            $ref: '#/definitions/Vehicals'
+            $ref: '#/definitions/PeopleSchema'
 definitions:
   Films:
+    type: object
+    properties:
+      count:
+        type: integer
+        example: '7'
+      next:
+        type: string
+        example: null
+      previous:
+        type: string
+        example: null
+      results:
+        type: array
+        items:
+          type: object
+          example:
+            $ref: '#/definitions/Film'
+  Film:
     type: object
     properties:
       title:
@@ -315,41 +182,74 @@ definitions:
         type: string
         description: The ISO 8601 date format of film release at original creator country.
         example: '1977-05-25'
+      characters:
+        type: array
+        items:
+          type: string
+        description: An array of people resource URLs that are in this film.
+        example:
+          - 'http://www.swapi.co/api/people/1/'
+          - 'http://www.swapi.co/api/people/2/'
+          - 'http://www.swapi.co/api/people/3/'
+          - 'http://www.swapi.co/api/people/4/'
+          - 'http://www.swapi.co/api/people/5/'
+          - 'http://www.swapi.co/api/people/6/'
+          - 'http://www.swapi.co/api/people/7/'
+          - 'http://www.swapi.co/api/people/8/'
+          - 'http://www.swapi.co/api/people/9/'
+          - 'http://www.swapi.co/api/people/10/'
+          - 'http://www.swapi.co/api/people/12/'
+          - 'http://www.swapi.co/api/people/13/'
+          - 'http://www.swapi.co/api/people/14/'
+          - 'http://www.swapi.co/api/people/15/'
+          - 'http://www.swapi.co/api/people/16/'
+          - 'http://www.swapi.co/api/people/18/'
+          - 'http://www.swapi.co/api/people/19/'
+          - 'http://www.swapi.co/api/people/81/'
+      planets:
+        type: array
+        items:
+          type: string
+        description: An array of planet resource URLs that are in this film.
+        example:
+          - 'http://www.swapi.co/api/planets/2/'
+          - 'http://www.swapi.co/api/planets/3/'
+          - 'http://www.swapi.co/api/planets/1/'
+      starships:
+        type: array
+        items:
+          type: string
+        description: An array of starship resource URLs that are in this film.
+        example:
+          - 'http://www.swapi.co/api/starships/2/'
+          - 'http://www.swapi.co/api/starships/3/'
+          - 'http://www.swapi.co/api/starships/5/'
+          - 'http://www.swapi.co/api/starships/9/'
+          - 'http://www.swapi.co/api/starships/10/'
+          - 'http://www.swapi.co/api/starships/11/'
+          - 'http://www.swapi.co/api/starships/12/'
+          - 'http://www.swapi.co/api/starships/13/'
+      vehicles:
+        type: array
+        items:
+          type: string
+        description: An array of vehicle resource URLs that are in this film.
+        example:
+          - 'http://www.swapi.co/api/vehicles/4/'
+          - 'http://www.swapi.co/api/vehicles/6/'
+          - 'http://www.swapi.co/api/vehicles/7/'
+          - 'http://www.swapi.co/api/vehicles/8/'
       species:
         type: array
         items:
           type: string
         description: An array of species resource URLs that are in this film.
         example:
-          - 'http://swapi.co/api/species/1/'
-      starships:
-        type: array
-        items:
-          type: string
-        description: An array of starship resource URLs that are in this film.
-        example: '-["http://swapi.co/api/starships/2/"]'
-      vehicles:
-        type: array
-        items:
-          type: string
-        description: An array of vehicle resource URLs that are in this film.
-        example: '-["http://swapi.co/api/vehicles/4/"]'
-      characters:
-        type: array
-        items:
-          type: string
-        description: An array of people resource URLs that are in this film.
-        example: '-["http://swapi.co/api/people/1/"]'
-      planets:
-        type: array
-        items:
-          type: string
-        description: An array of planet resource URLs that are in this film.
-        example: '-["http://swapi.co/api/planets/1/"]'
-      url:
-        type: string
-        description: the hypermedia URL of this resource.
-        example: 'http://swapi.co/api/films/1/'
+          - 'http://www.swapi.co/api/species/5/'
+          - 'http://www.swapi.co/api/species/3/'
+          - 'http://www.swapi.co/api/species/2/'
+          - 'http://www.swapi.co/api/species/1/'
+          - 'http://www.swapi.co/api/species/4/'
       created:
         type: string
         description: the ISO 8601 date format of the time that this resource was created.
@@ -358,7 +258,208 @@ definitions:
         type: string
         description: the ISO 8601 date format of the time that this resource was edited.
         example: '2014-12-12T11:24:39.858000Z'
+      url:
+        type: string
+        description: the hypermedia URL of this resource.
+        example: 'http://swapi.co/api/films/1/'
+  FilmSchema:
+    type: object
+    properties:
+      description:
+        type: string
+        example: A Star Wars film
+      title:
+        type: string
+        example: Film
+      type:
+        type: string
+        example: object
+      required:
+        type: array
+        items:
+          type: string
+        example:
+          - title
+          - episode_id
+          - opening_crawl
+          - director
+          - producer
+          - release_date
+          - characters
+          - planets
+          - starships
+          - vehicles
+          - species
+          - url
+          - created
+          - edited
+      $schema:
+        type: string
+        example: 'http://json-schema.org/draft-04/schema'
+      properties:
+        type: object
+        properties:
+          producer:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The producer(s) of this film.
+          created:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: >-
+                  The ISO 8601 date format of the time that this resource was
+                  created.
+              format:
+                type: string
+                example: date-time
+          title:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The title of this film.
+          director:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The director of this film.
+          release_date:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The release date at original creator country.
+              format:
+                type: string
+                example: date
+          url:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The url of this resource.
+              format:
+                type: string
+                example: uri
+          edited:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: >-
+                  the ISO 8601 date format of the time that this resource was
+                  edited.
+              format:
+                type: string
+                example: date-time
+          species:
+            type: object
+            properties:
+              type:
+                type: string
+                example: array
+              description:
+                type: string
+                example: The species resources featured within this film.
+          characters:
+            type: object
+            properties:
+              type:
+                type: string
+                example: array
+              description:
+                type: string
+                example: The people resources featured within this film.
+          planets:
+            type: object
+            properties:
+              type:
+                type: string
+                example: array
+              description:
+                type: string
+                example: The planet resources featured within this film.
+          episode_id:
+            type: object
+            properties:
+              type:
+                type: string
+                example: integer
+              description:
+                type: string
+                example: The episode number of this film.
+          starships:
+            type: object
+            properties:
+              type:
+                type: string
+                example: array
+              description:
+                type: string
+                example: The starship resources featured within this film.
+          opening_crawl:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The opening crawl text at the beginning of this film.
+          vehicles:
+            type: object
+            properties:
+              type:
+                type: string
+                example: array
+              description:
+                type: string
+                example: The vehicle resources featured within this film.
   People:
+    type: object
+    properties:
+      count:
+        type: integer
+        example: '7'
+      next:
+        type: string
+        example: null
+      previous:
+        type: string
+        example: null
+      results:
+        type: array
+        items:
+          type: object
+          example:
+            $ref: '#/definitions/Person'
+  Person:
     type: object
     properties:
       name:
@@ -449,329 +550,201 @@ definitions:
         type: string
         description: the ISO 8601 date format of the time that this resource was edited.
         example: '2014-12-10T13:52:43.172000Z'
-  Planets:
+  PeopleSchema:
     type: object
     properties:
-      name:
+      description:
         type: string
-        description: The name of this planet.
-        example: Tatooine
-      diameter:
+        example: A person within the Star Wars universe.
+      title:
         type: string
-        description: The diameter of this planet in kilometers.
-        example: '10465'
-      rotation_period:
+        example: People
+      type:
         type: string
-        description: ' The number of standard hours it takes for this planet to complete a single rotation on its axis.'
-        example: '23'
-      orbital_period:
-        type: string
-        description: >-
-          The number of standard days it takes for this planet to complete a
-          single orbit of its local star.
-        example: '304'
-      gravity:
-        type: string
-        description: >-
-          A number denoting the gravity of this planet, where "1" is normal or 1
-          standard G. "2" is twice or 2 standard Gs. "0.5" is half or 0.5
-          standard Gs.
-        example: '1'
-      population:
-        type: string
-        description: The average population of sentient beings inhabiting this planet.
-        example: '120000'
-      climate:
-        type: string
-        description: The climate of this planet. Comma separated if diverse.
-        example: Arid
-      terrain:
-        type: string
-        description: The terrain of this planet. Comma separated if diverse.
-        example: Dessert
-      surface_water:
-        type: string
-        description: >-
-          The percentage of the planet surface that is naturally occurring water
-          or bodies of water.
-        example: '1'
-      residents:
+        example: object
+      required:
         type: array
-        items:
-          type: string
-        description: An array of People URL Resources that live on this planet.
         example:
-          - 'http://swapi.co/api/people/1/'
-      films:
-        type: array
-        items:
-          type: string
-        description: An array of Film URL Resources that this planet has appeared in.
-        example:
-          - 'http://swapi.co/api/films/1/'
-      url:
+          - name
+          - height
+          - mass
+          - hair_color
+          - skin_color
+          - eye_color
+          - birth_year
+          - gender
+          - homeworld
+          - films
+          - species
+          - vehicles
+          - starships
+          - url
+          - created
+          - edited
+      $schema:
         type: string
-        description: he hypermedia URL of this resource.
-        example: 'http://swapi.co/api/planets/1/'
-      created:
-        type: string
-        description: the ISO 8601 date format of the time that this resource was created.
-        example: '2014-12-09T13:50:49.641000Z'
-      edited:
-        type: string
-        description: the ISO 8601 date format of the time that this resource was edited.
-        example: '2014-12-15T13:48:16.167217Z'
-  Species:
-    type: object
-    properties:
-      name:
-        type: string
-        description: The name of this species.
-        example: Wookie
-      classification:
-        type: string
-        description: 'The classification of this species, such as "mammal" or "reptile".'
-        example: Mammal
-      designation:
-        type: string
-        description: 'The designation of this species, such as "sentient".'
-        example: ''
-      average_height:
-        type: string
-        description: The average height of this species in centimeters.
-        example: '2.1'
-      average_lifespan:
-        type: string
-        description: The average lifespan of this species in years.
-        example: '400'
-      eye_colors:
-        type: string
-        description: >-
-          A comma-separated string of common eye colors for this species, "none"
-          if this species does not typically have eyes.
-        example: 'blue, green, yellow, brown, golden, red'
-      hair_colors:
-        type: string
-        description: >-
-          A comma-separated string of common hair colors for this species,
-          "none" if this species does not typically have hair.
-        example: 'black, brown'
-      skin_colors:
-        type: string
-        description: >-
-          A comma-separated string of common skin colors for this species,
-          "none" if this species does not typically have skin.
-        example: gray
-      language:
-        type: string
-        description: The language commonly spoken by this species.
-        example: Shyriiwook
-      homeworld:
-        type: string
-        description: >-
-          The URL of a planet resource, a planet that this species originates
-          from.
-        example: 'http://swapi.co/api/planets/14/'
-      people:
-        type: array
-        items:
-          type: string
-        description: An array of People URL Resources that are a part of this species.
-        example:
-          - 'http://swapi.co/api/people/13/'
-      films:
-        type: array
-        items:
-          type: string
-        description: An array of Film URL Resources that this species has appeared in.
-        example:
-          - 'http://swapi.co/api/films/1/'
-          - 'http://swapi.co/api/films/2/'
-      url:
-        type: string
-        description: the hypermedia URL of this resource.
-        example: 'http://swapi.co/api/species/3/'
-      created:
-        type: string
-        description: the ISO 8601 date format of the time that this resource was created.
-        example: '2014-12-10T16:44:31.486000Z'
-      edited:
-        type: string
-        description: the ISO 8601 date format of the time that this resource was edited.
-        example: '2014-12-10T16:44:31.486000Z'
-  Starships:
-    type: object
-    properties:
-      name:
-        type: string
-        description: 'The name of this starship. The common name, such as "Death Star".'
-        example: Death Star
-      model:
-        type: string
-        description: >-
-          The model or official name of this starship. Such as "T-65 X-wing" or
-          "DS-1 Orbital Battle Station".
-        example: DS-1 Orbital Battle Station
-      starship_class:
-        type: string
-        description: >-
-          The class of this starship, such as "Starfighter" or "Deep Space
-          Mobile "
-        example: Deep Space Mobile Battlestation
-      manufacturer:
-        type: string
-        description: The manufacturer of this starship. Comma separated if more than one.
-        example: 'Imperial Department of Military Research, Sienar Fleet Systems'
-      cost_in_credits:
-        type: string
-        description: 'The cost of this starship new, in galactic credits.'
-        example: '1000000000000'
-      length:
-        type: string
-        description: The length of this starship in meters.
-        example: '120000'
-      crew:
-        type: string
-        description: The number of personnel needed to run or pilot this starship.
-        example: '342953'
-      passengers:
-        type: string
-        description: The number of non-essential people this starship can transport.
-        example: '843342'
-      max_atmosphering_speed:
-        type: string
-        description: >-
-          The maximum speed of this starship in the atmosphere. "N/A" if this
-          starship is incapable of atmospheric flight.
-        example: n/a
-      hyperdrive_rating:
-        type: string
-        description: The class of this starships hyperdrive.
-        example: '4.0'
-      MGLT:
-        type: string
-        description: >-
-          The Maximum number of Megalights this starship can travel in a
-          standard hour. A "Megalight" is a standard unit of distance and has
-          never been defined before within the Star Wars universe. This figure
-          is only really useful for measuring the difference in speed of
-          starships. We can assume it is similar to AU, the distance between our
-          Sun (Sol) and Earth.
-        example: 10 MGLT
-      cargo_capacity:
-        type: string
-        description: The maximum number of kilograms that this starship can transport.
-        example: '1000000000000'
-      consumables:
-        type: string
-        description: >-
-          The maximum length of time that this starship can provide consumables
-          for its entire crew without having to resupply.
-        example: 3 years
-      films:
-        type: array
-        items:
-          type: string
-        description: An array of Film URL Resources that this starship has appeared in.
-        example:
-          - 'http://swapi.co/api/films/1/'
-      pilots:
-        type: array
-        items:
-          type: string
-        description: >-
-          An array of People URL Resources that this starship has been piloted
-          by.
-        example: []
-      url:
-        type: string
-        description: the hypermedia URL of this resource.
-        example: 'http://swapi.co/api/starships/9/'
-      created:
-        type: string
-        description: the ISO 8601 date format of the time that this resource was created.
-        example: '2014-12-10T16:36:50.509000Z'
-      edited:
-        type: string
-        description: the ISO 8601 date format of the time that this resource was edited.
-        example: '2014-12-10T16:36:50.509000Z'
-  Vehicals:
-    type: object
-    properties:
-      name:
-        type: string
-        description: >-
-          The name of this vehicle. The common name, such as "Sand Crawler" or
-          "Speeder bike".
-        example: Sand Crawler
-      model:
-        type: string
-        description: >-
-          The model or official name of this vehicle. Such as "All-Terrain
-          Attack Transport".
-        example: Digger Crawler
-      vehicle_class:
-        type: string
-        description: 'The class of this vehicle, such as "Wheeled" or "Repulsorcraft".'
-        example: wheeled
-      manufacturer:
-        type: string
-        description: The manufacturer of this vehicle. Comma separated if more than one.
-        example: Corellia Mining Corporation
-      length:
-        type: string
-        description: The length of this vehicle in meters.
-        example: '36.8'
-      cost_in_credits:
-        type: string
-        description: 'The cost of this vehicle new, in Galactic Credits.'
-        example: '150000'
-      crew:
-        type: string
-        description: The number of personnel needed to run or pilot this vehicle.
-        example: '46'
-      passengers:
-        type: string
-        description: The number of non-essential people this vehicle can transport.
-        example: '30'
-      max_atmosphering_speed:
-        type: string
-        description: he maximum speed of this vehicle in the atmosphere.
-        example: '30'
-      cargo_capacity:
-        type: string
-        description: The maximum number of kilograms that this vehicle can transport.
-        example: '50000'
-      consumables:
-        type: string
-        description: >-
-          The maximum length of time that this vehicle can provide consumables
-          for its entire crew without having to resupply.
-        example: 2 months
-      films:
-        type: array
-        items:
-          type: string
-        description: An array of Film URL Resources that this vehicle has appeared in.
-        example:
-          - 'http://swapi.co/api/films/1/'
-      pilots:
-        type: array
-        items:
-          type: string
-        description: >-
-          An array of People URL Resources that this vehicle has been piloted
-          by.
-        example: []
-      url:
-        type: string
-        description: the hypermedia URL of this resource.
-        example: 'http://swapi.co/api/vehicles/4/'
-      created:
-        type: string
-        description: the ISO 8601 date format of the time that this resource was created.
-        example: '2014-12-10T15:36:25.724000Z'
-      edited:
-        type: string
-        description: the ISO 8601 date format of the time that this resource was edited.
-        example: '2014-12-10T15:36:25.724000Z'
+        example: 'http://json-schema.org/draft-04/schema'
+      properties:
+        type: object
+        properties:
+          mass:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The mass of this person in kilograms.
+          hair_color:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The hair color of this person.
+          created:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: >-
+                  The ISO 8601 date format of the time that this resource was
+                  created.
+              format:
+                type: string
+                example: date-time
+          films:
+            type: object
+            properties:
+              type:
+                type: string
+                example: array
+              description:
+                type: string
+                example: >-
+                  An array of urls of film resources that this person has been
+                  in.
+          gender:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The gender of this person (if known).
+          eye_color:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The eye color of this person.
+          edited:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: >-
+                  the ISO 8601 date format of the time that this resource was
+                  edited.
+              format:
+                type: string
+                example: date-time
+          height:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The height of this person in meters.
+          url:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The url of this resource.
+              format:
+                type: string
+                example: uri
+          homeworld:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The url of the planet resource that this person was born on.
+          name:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The name of this person.
+          vehicles:
+            type: object
+            properties:
+              type:
+                type: string
+                example: array
+              description:
+                type: string
+                example: An array of vehicle resources that this person has piloted.
+          starships:
+            type: object
+            properties:
+              type:
+                type: string
+                example: array
+              description:
+                type: string
+                example: An array of starship resources that this person has piloted.
+          birth_year:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: >-
+                  The birth year of this person. BBY (Before the Battle of
+                  Yavin) or ABY (After the Battle of Yavin).
+          skin_color:
+            type: object
+            properties:
+              type:
+                type: string
+                example: string
+              description:
+                type: string
+                example: The skin color of this person.
+          species:
+            type: object
+            properties:
+              type:
+                type: string
+                example: array
+              description:
+                type: string
+                example: The url of the species resource that this person is.
