@@ -22,6 +22,6 @@ function readFile(file, index) {
 
 try {
   readFile(files[0], 0);
-} catch (err) {
+} catch(err) {
   console.log(err);
 }
