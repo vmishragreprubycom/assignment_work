@@ -1,0 +1,28 @@
+{
+  "name": "init-package-json",
+  "version": "1.0.0",
+  "description": "This project consumes a set of APIs of CampaignMonitor and expose those set of APIs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmishragreprubycom/assignment_work.git"
+  },
+  "keywords": [
+    "campaignmonitor"
+  ],
+  "author": "Vinay Mishra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vmishragreprubycom/assignment_work/issues"
+  },
+  "homepage": "https://github.com/vmishragreprubycom/assignment_work#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "nodemon": "^1.11.0",
+    "request": "^2.81.0"
+  }
+}
